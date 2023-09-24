@@ -246,7 +246,7 @@ main {
 
   .summary {
     min-width: 30vw;
-    max-width: 40vw;
+    max-width: 35vw;
     margin: 10em 10em;
     border-radius: 2em;
     box-shadow: 5px 5px 15px var(--secondary-gray-blue-t2);
