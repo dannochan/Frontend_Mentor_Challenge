@@ -12,46 +12,91 @@ function App() {
   const [pwError, setPwError] = useState("");
 
   const firstNameChangeHandler = (event) => {
-    setFirstName(event.target.value.trim());
+    const enteredFirstName = event.target.value;
+
+    setFirstName(enteredFirstName);
   };
   const lastNameChangeHandler = (event) => {
-    setLastName(event.target.value.trim());
+    const enteredLastName = event.target.value;
+    setLastName(enteredLastName);
   };
   const emailChangeHandler = (event) => {
-    setEmail(event.target.value.trim());
+    const enteredEmail = event.target.value;
+    setEmail(enteredEmail);
   };
   const passwordChangeHandler = (event) => {
-    setPassword(event.target.value.trim());
+    const enteredPassword = event.target.value;
+    setPassword(enteredPassword);
   };
 
   const firstNameBlurHandler = () => {
-    if (firstName === "") {
+    if (firstName.trim() === "") {
       setFnError("First Name cannot be empty");
-    } else if (firstName.length < 2) {
+    } else if (firstName.trim().length < 2) {
       setFnError("Please enter a valid first Name");
+    } else if (firstName.trim().match(/[\W|\d]/g)) {
+      setFnError("Look like is not a valid first name");
+    } else {
+      setFnError("");
     }
   };
 
   const lastNameBlurHandler = () => {
-    if (lastName === "") {
+    if (lastName.trim() === "") {
       setLnError("Last Name cannot be empty");
-    } else if (firstName.length < 2) {
+    } else if (lastName.trim().length < 2) {
       setLnError("Please enter a valid last Name");
+    } else if (lastName.trim().match(/[\W|\d]/g)) {
+      setLnError("Look like is not a valid last name");
+    } else {
+      setLnError("");
     }
   };
   const emailBlurHandler = () => {
-    if (email === "") {
+    if (email.trim() === "") {
       setEmailError("Email Address cannot be empty");
-    } else if (!email.includes("@")) {
-      setEmailError("Please enter a valid email address");
+    } else if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email.trim())) {
+      setEmailError("Looks like is not an e-mail");
+    } else {
+      setEmailError("");
     }
   };
   const passwordBlurHandler = () => {
-    if (password === "") {
+    if (password.trim() === "") {
       setPwError("Password cannot be empty");
-    } else if (password.length <= 4) {
+    } else if (
+      !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password.trim())
+    ) {
       setPwError("Please Enter a valid password");
+    } else {
+      setPwError("");
     }
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    if (FnError || LnError || emailError || pwError) {
+      return;
+    }
+
+    const enteredUserData = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
+
+    console.log(enteredUserData);
+
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+    setEmailError("");
+    setFnError("");
+    setLnError("");
+    setPwError("");
   };
 
   return (
@@ -122,7 +167,7 @@ function App() {
             </div>
 
             <div className="app__signup-btn">
-              <button>claim your free trail</button>
+              <button onClick={submitHandler}>claim your free trail</button>
             </div>
 
             <div className="app__signup-terms">

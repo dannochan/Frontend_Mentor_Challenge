@@ -6,9 +6,11 @@
   --primary-color-red: hsl(0, 100%, 74%);
   --primary-color-red-t: hsla(0, 100%, 74%, 0.8);
   --primary-color-green: hsl(154, 59%, 51%);
-  --primary-color-green-t: hsla(154, 59%, 51%, 0.6);
+  --primary-color-green-t70: hsla(154, 59%, 51%, 0.7);
+  --primary-color-green-t: hsla(154, 59%, 51%, 0.9);
   --secondary-color-blue: hsl(248, 32%, 49%);
   --dark-blue: hsl(249, 10%, 26%);
+  --dark-blue-30: hsla(249, 10%, 26%, 0.3);
   --gray-blue: hsl(246, 25%, 77%);
   --gray-blue-t: hsl(246, 25%, 77%, 0.5);
 }
