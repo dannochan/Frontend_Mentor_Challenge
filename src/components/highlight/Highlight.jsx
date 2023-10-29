@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Highlight.module.scss";
+import "./Highlight.scss";
 
 const Highlight = () => {
   return (

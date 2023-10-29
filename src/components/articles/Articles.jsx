@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Articles.module.scss";
+import "./Articles.scss";
 
 const Articles = () => {
   return (
