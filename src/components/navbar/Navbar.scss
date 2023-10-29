@@ -1,0 +1,36 @@
+.app__navbar {
+  width: 100%;
+  margin-bottom: 2rem;
+  background: var(--primary-white);
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  z-index: 2;
+}
+
+.app__navbar-logo {
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {
+    width: 24px; 
+    height: 24px;
+  }
+}
+
+.app__navbar-mobile {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+}
